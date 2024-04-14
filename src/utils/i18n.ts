@@ -9,11 +9,11 @@ i18n
     .use(initReactI18next)
     .init({
         resources: {
-            en: {
-                translation: enTranslation,
-            },
             vi: {
                 translation: viTranslation,
+            },
+            en: {
+                translation: enTranslation,
             },
             // thêm các ngôn ngữ khác ở đây
         },

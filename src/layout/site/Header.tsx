@@ -137,11 +137,11 @@ const Header = () => {
                                 </button>
                                 {isOpen && (
                                     <div className="absolute top-full left-0 mt-2 bg-white rounded shadow border border-gray-200 z-50">
-                                        <button className="flex gap-1 items-center p-2 hover:bg-gray-100" onClick={() => selectLanguage('en')}>
-                                            <img src="https://kenh14cdn.com/2017/5-1503128133747.png" alt="" className="w-6 h-4 object-cover" />
-                                        </button>
                                         <button className="flex gap-1 items-center p-2 hover:bg-gray-100" onClick={() => selectLanguage('vi')}>
                                             <img src="https://th.bing.com/th?id=OSK.e1790c55fb0493ee09dba2fc418bff07&w=188&h=132&c=7&o=6&dpr=1.3&pid=SANGAM" alt="" className="w-6 h-4 object-cover" />
+                                        </button>
+                                        <button className="flex gap-1 items-center p-2 hover:bg-gray-100" onClick={() => selectLanguage('en')}>
+                                            <img src="https://kenh14cdn.com/2017/5-1503128133747.png" alt="" className="w-6 h-4 object-cover" />
                                         </button>
                                     </div>
                                 )}

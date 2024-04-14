@@ -119,7 +119,7 @@ const ClinicsDetail = () => {
 
             {/* Danh sách bác sĩ */}
             <div className='bg-gray-100 mt-2 py-4'>
-                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-44 mb-4' ref={doctorsListRef}>{t('clinicsDetail.doctor')}</h2>
+                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-auto mb-4' ref={doctorsListRef}>{t('clinicsDetail.doctor')}</h2>
                 <ListBooking
                     lstService={lstDoctor}
                     currentPage={currentPage}
@@ -131,7 +131,7 @@ const ClinicsDetail = () => {
                     doctorLoading={doctorLoading}
                 />
 
-                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-44 mb-4'>{t('clinicsDetail.service')}</h2>
+                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-auto mb-4'>{t('clinicsDetail.service')}</h2>
                 <ListBooking
                     lstService={ltsService}
                     currentPage={currentPage2}

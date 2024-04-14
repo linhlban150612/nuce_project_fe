@@ -75,7 +75,7 @@ const MedExamination = () => {
 
     return (
         <div>
-            <div className="max-w-screen-xl mx-44">
+            <div className="max-w-screen-xl mx-auto">
                 <div className="flex items-center gap-1 my-4 text-[#45C3D2] ">
                     <a href="/" className="flex gap-1"><AiFillHome className="text-xl" />/</a>
                     <p>{t(location.state.slug)}</p>
@@ -94,7 +94,7 @@ const MedExamination = () => {
                 </button>
             </div>
             <div className='bg-gray-100 mt-2 py-4'>
-                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-44 mb-4'>{t('clinicsDetail.doctor')}</h2>
+                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-auto mb-4'>{t('clinicsDetail.doctor')}</h2>
                 <ListBooking
                     lstService={lstDoctor}
                     currentPage={currentPage}
@@ -106,7 +106,7 @@ const MedExamination = () => {
                     doctorLoading={doctorLoading}
                 />
 
-                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-44 mb-4'>{t('clinicsDetail.service')}</h2>
+                <h2 className='font-semibold text-gray-800 text-2xl max-w-screen-xl mx-auto mb-4'>{t('clinicsDetail.service')}</h2>
                 <ListBooking
                     lstService={ltsService}
                     currentPage={currentPage2}

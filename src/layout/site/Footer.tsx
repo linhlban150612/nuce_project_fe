@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="mt-8">
       <div className="bg-[#EFEFEF] py-6">
-        <div className="max-w-screen-xl mx-44 flex justify-between items-center">
+        <div className="max-w-screen-xl mx-[18%] flex justify-between items-center">
           <div className="text-start grid gap-2 grid-cols-1">
             <p className="text-[#75bbde] flex gap-3 items-center ">
               <BiLocationPlus className="text-5xl" />
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-[#64B9E5] py-6">
-        <div className="flex justify-between max-w-screen-xl mx-44 items-start">
+        <div className="flex justify-between mx-[18%] items-start">
           <p className="text-white text-sm">© 2024 Healthy Care</p>
           <div className="flex gap-1.5 items-center text-4xl">
             <button>

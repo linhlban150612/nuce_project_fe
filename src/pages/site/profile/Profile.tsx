@@ -39,9 +39,9 @@ const Profile = () => {
         window.scrollTo(0, 0)
     }, [])
     return (
-        <Content style={{ padding: '0 20px' }} className='max-w-screen-xl my-8'>
+        <Content className='max-w-screen-xl my-8 mx-auto'>
             <Layout style={{ background: colorBgContainer }}>
-                <Sider style={{ background: colorBgContainer, margin: '0px 0px 0px 120px' }} width={200}>
+                <Sider style={{ background: colorBgContainer }} width={200}>
                     <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%' }}>
                         {items.map(item => (
                             <Menu.Item key={item.key} icon={item.icon}>

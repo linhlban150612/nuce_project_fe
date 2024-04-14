@@ -64,7 +64,7 @@ const Home = () => {
                 <img src="https://cdn.bookingcare.vn/fo/2023/11/02/134537-group-12314.png" className="max-w-screen-xl mx-auto w-[1200px] h-[400px] object-cover rounded-[30px]" alt="" />
             </div>
 
-            <div className="max-w-screen-xl mx-44 mt-36">
+            <div className="max-w-screen-xl mx-auto mt-36">
                 <div className="flex justify-between items-center font-semibold text-2xl my-8">
                     <h2>{t('specialty')}</h2>
 
@@ -77,7 +77,7 @@ const Home = () => {
                 </Spin>
             </div>
 
-            <div className="max-w-screen-xl mx-44 mt-20">
+            <div className="max-w-screen-xl mx-auto mt-20">
                 <div className="flex justify-between items-center font-semibold text-2xl my-8">
                     <h2>{t('clinics')}</h2>
                     <div className="bg-[#DAF3F6] text-[#34929E] p-2 rounded-xl">
@@ -89,7 +89,7 @@ const Home = () => {
                 </Spin>
             </div>
 
-            <div className="max-w-screen-xl mx-44 mt-20">
+            <div className="max-w-screen-xl mx-auto mt-20">
                 <div className="flex justify-between items-center font-semibold text-2xl my-8">
                     <h2>{t('doctor')}</h2>
                     <div className="bg-[#DAF3F6] text-[#34929E] p-2 rounded-xl">
@@ -101,7 +101,7 @@ const Home = () => {
                 </Spin>
             </div>
 
-            <div className="max-w-screen-xl mx-44 mt-20">
+            <div className="max-w-screen-xl mx-auto mt-20">
                 <div className="flex justify-between items-center font-semibold text-2xl my-8">
                     <h2>{t('service')}</h2>
                     <div className="bg-[#DAF3F6] text-[#34929E] p-2 rounded-xl">

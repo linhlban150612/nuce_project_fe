@@ -91,7 +91,7 @@ const LstProfile = () => {
     };
 
     return (
-        <div>
+        <div className='mx-auto'>
             <h2 className='text-2xl font-medium mb-4'>Danh sách hồ sơ</h2>
             {selectedIds.length > 0 && (
                 <div className='flex gap-2 items-center'>

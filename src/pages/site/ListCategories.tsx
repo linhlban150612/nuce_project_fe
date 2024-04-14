@@ -120,7 +120,7 @@ const ListCategories = () => {
     }
 
     return (
-        <div className="max-w-screen-xl mx-44">
+        <div className="max-w-screen-xl mx-auto">
             <div className="flex items-center gap-1 my-4">
                 <a href="/" className="text-[#45C3D2] flex gap-1"><AiFillHome className="text-xl" />/</a>
                 <p className="font-light">{t(data.slug)}</p>

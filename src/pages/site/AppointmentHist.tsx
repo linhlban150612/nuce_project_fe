@@ -98,13 +98,13 @@ const AppointmentHist = () => {
     };
 
     return (
-        <div className="max-w-screen-xl mx-44">
+        <div className="max-w-screen-xl mx-auto">
             <div className="flex items-center gap-1 my-4 text-[#45C3D2]">
                 <a href="/" className="flex gap-1"><AiFillHome className="text-xl" />/</a>
                 <p> {t('history')}</p>
             </div>
             <h2 className="font-bold text-xl mt-2 mb-5">{t('history')}</h2>
-            <Form onFinish={handleSearch} form={form} className="ml-8 my-4">
+            <Form onFinish={handleSearch} form={form} className="my-4">
                 <div className="flex gap-4">
                     <Form.Item name="name">
                         <RangePicker placeholder={['Từ ngày', 'Đến ngày']} />

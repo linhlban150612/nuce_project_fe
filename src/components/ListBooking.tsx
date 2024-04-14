@@ -40,7 +40,7 @@ const ListBooking: React.FC<ServiceListProps> = ({
 
     return (
         <Spin spinning={doctorLoading}>
-            <div className='max-w-screen-xl mx-44 grid grid-cols-1 gap-4'>
+            <div className='max-w-screen-xl mx-auto grid grid-cols-1 gap-4'>
                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 {lstService?.data?.data.map((item: any, index: number) => (
                     <div key={item.id} className='py-3 rounded-xl shadow-md grid grid-cols-2 bg-white items-start'>
