@@ -3,7 +3,6 @@ import { BiLocationPlus } from "react-icons/bi"
 import { FaLocationDot } from "react-icons/fa6"
 
 
-
 const Footer = () => {
   return (
     <footer className="mt-8">
@@ -45,6 +44,11 @@ const Footer = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div className="bg-[#EFEFEF] max-w-full flex justify-center items-center">
+
+        <div className="text-black text-lg w-fit">Sản phẩm chỉ phục vụ cho ĐATN, không mang mục đích thương mại</div>
+
       </div>
     </footer>
 
