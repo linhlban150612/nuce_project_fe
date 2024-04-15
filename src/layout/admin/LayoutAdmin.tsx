@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { useRefreshTokenMutation } from '../../api/share/area';
 import { Notifn } from '../../utils/Notification';
 import { CiBookmarkCheck } from 'react-icons/ci';
+import logo from '../../../public/logoDA.png';
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -76,7 +78,7 @@ const LayoutAdmin = () => {
         <Layout className='min-h-screen'>
             <Sider trigger={null} collapsible width={220} style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, zIndex: 20 }}>
                 <div className="demo-logo-vertical flex justify-center mb-4 mt-8 mx-4 rounded-lg gap-2" >
-                    <img src="/src/asset/img/logoDA.png" className='w-10' alt="" />
+                    <img src={logo} className='w-10' alt="" />
                     <p className='font-semibold text-2xl text-white'></p>
                 </div>
                 <Menu

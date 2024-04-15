@@ -4,6 +4,7 @@ import { LockOutlined, UserOutlined, PhoneOutlined, MailOutlined } from '@ant-de
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthSignup, useSignupMutation } from '../../api/share/Auth';
+import logo from '../../../public/logoDA.png';
 
 const Signup = () => {
     const [form] = Form.useForm();
@@ -41,7 +42,7 @@ const Signup = () => {
                 <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-7">
                     <div className="max-w-2xl">
                         <Link className="block text-blue-600" to="/">
-                            <img src="/src/asset/img/logoDA.png" className="w-20" alt="" />
+                            <img src={logo} className="w-20" alt="" />
                         </Link>
                         <h1 className="my-6 text-xl font-bold text-blue-500 sm:text-3xl md:text-4xl">Chào mừng bạn đến với Healthy-Care!!</h1>
                         <Form

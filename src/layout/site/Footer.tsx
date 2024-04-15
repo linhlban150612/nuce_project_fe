@@ -1,6 +1,6 @@
 import { AiOutlineMail, AiOutlineUser } from "react-icons/ai"
-import { BiLocationPlus } from "react-icons/bi"
 import { FaLocationDot } from "react-icons/fa6"
+import logo from '../../../public/logoDA.png';
 
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="max-w-screen-xl mx-[18%] flex justify-between items-center">
           <div className="text-start grid gap-2 grid-cols-1">
             <p className="text-[#75bbde] flex gap-3 items-center ">
-              <BiLocationPlus className="text-5xl" />
+              <img src={logo} className=" w-14" alt="" />
               <span className="text-xl font-bold">Healthy Care</span>
             </p>
             <p className="font-medium">Đại học Xây Dựng Hà Nội</p>

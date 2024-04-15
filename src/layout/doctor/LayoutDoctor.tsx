@@ -10,6 +10,7 @@ import { MdOutlineDateRange, MdOutlineMedicalServices } from 'react-icons/md';
 import { Notifn } from '../../utils/Notification';
 import { useGetServiceDoctorQuery } from '../../api/admin/Doctor';
 import { FaUserDoctor } from 'react-icons/fa6';
+import logo from '../../../public/logoDA.png';
 
 const { Header, Content, Sider } = Layout;
 
@@ -99,7 +100,7 @@ const LayoutDoctor = () => {
                 trigger={null} collapsible width={220} style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, zIndex: 20 }}
             >
                 <div className="flex justify-center items-center"> {/* Thêm các lớp để căn giữa */}
-                    <img src="/src/asset/img/logoDA.png" className="w-14 my-4" alt="" />
+                    <img src={logo} className="w-14 my-4" alt="" />
                 </div>
                 <Menu
                     theme="light"
