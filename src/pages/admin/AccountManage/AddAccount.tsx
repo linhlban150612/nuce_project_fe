@@ -27,8 +27,8 @@ const AddAccount = () => {
     const { data: provinces } = useGetProvincesQuery();//Tỉnh thành phố
     const { data: districts, isLoading: loadingDistricts } = useGetDistrictsQuery(selectedProvince);//Quận huyện
     const { data: wards, isLoading: loadingWards } = useGetWardsQuery(selectedDistricts);//Phường Xã
-    const { data: specialty, isLoading: loadingSpecialty } = useGetAllSpecialtyQuery({ name: "", status: "", page: 0, resultLimit: 500 });//Chuyên khoa
-    const { data: clinics, isLoading: loadingClinics } = useGetAllClinicsQuery({ search: "", province: "", status: "", page: 0, resultLimit: 500 });//Phòng khám
+    const { data: specialty, isLoading: loadingSpecialty } = useGetAllSpecialtyQuery({ name: "", status: "1", page: 0, resultLimit: 500 });//Chuyên khoa
+    const { data: clinics, isLoading: loadingClinics } = useGetAllClinicsQuery({ search: "", province: "", status: "1", page: 0, resultLimit: 500 });//Phòng khám
     const [addAccount] = useAddAccountMutation(); //hàm thêm tài khoản
     const [uploadImage, { isLoading }] = useUploadMutation();
 
@@ -182,7 +182,16 @@ const AddAccount = () => {
                                     ]}
                                 >
                                     <Upload
-                                        beforeUpload={(file) => { handleUpload(file) }}
+                                        // beforeUpload={(file) => { handleUpload(file) }}
+                                        beforeUpload={(file) => {
+                                            const MAX_FILE_SIZE = import.meta.env.VITE_MAX_FILE_SIZE;
+                                            const isLtMaxFileSize = file.size / 1024 / 1024 < MAX_FILE_SIZE;
+                                            if (isLtMaxFileSize) {
+                                                handleUpload(file)
+                                            } else {
+                                                Notifn("warning", "Cảnh báo", "Ảnh không được quá " + MAX_FILE_SIZE.toString() + "MB");
+                                            }
+                                        }}
                                         showUploadList={false}
                                         listType="picture-card" // Thay đổi kiểu hiển thị thành avatar
                                         accept="image/*"

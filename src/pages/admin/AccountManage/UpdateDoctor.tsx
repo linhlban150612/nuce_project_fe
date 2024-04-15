@@ -120,7 +120,16 @@ const UpdateDoctor = () => {
                                 name="imageObjectId"
                             >
                                 <Upload
-                                    beforeUpload={(file) => { handleUpload(file) }}
+                                    // beforeUpload={(file) => { handleUpload(file) }}
+                                    beforeUpload={(file) => {
+                                        const MAX_FILE_SIZE = import.meta.env.VITE_MAX_FILE_SIZE;
+                                        const isLtMaxFileSize = file.size / 1024 / 1024 < MAX_FILE_SIZE;
+                                        if (isLtMaxFileSize) {
+                                            handleUpload(file)
+                                        } else {
+                                            Notifn("warning", "Cảnh báo", "Ảnh không được quá " + MAX_FILE_SIZE.toString() + "MB");
+                                        }
+                                    }}
                                     showUploadList={false}
                                     listType="picture-card" // Thay đổi kiểu hiển thị thành avatar
                                     accept="image/*"

@@ -233,21 +233,36 @@ const ServiceBookingManage = () => {
         key: index.toString(),
     }));
 
-    const beforeUpload = () => {
-        return true;
+    const [isValidFileSize, setIsValidFileSize] = useState(true)
+
+    const beforeUpload = (file: File) => {
+        const MAX_FILE_SIZE = import.meta.env.VITE_MAX_FILE_SIZE;
+        const isLtMaxFileSize = file.size / 1024 / 1024 < MAX_FILE_SIZE;
+        if (!isLtMaxFileSize) {
+            Notifn("warning", "Cảnh báo", "File không được quá " + MAX_FILE_SIZE.toString() + "MB");
+            setIsValidFileSize(false);
+            return false; // Ngăn không cho tải lên
+        } else {
+            setIsValidFileSize(true);
+            return true; // Cho phép tải lên
+        }
     };
 
     const handleChange = (info: UploadChangeParam) => {
-        let newFileList = [...info.fileList];
-        newFileList = newFileList.map(file => {
-            if (!file.url && file.originFileObj) {
-                file.url = URL.createObjectURL(file.originFileObj);
-            }
-            file.status = 'done';
-            return file;
-        });
+        if (isValidFileSize) {
 
-        setFileList(newFileList);
+            let newFileList = [...info.fileList];
+            newFileList = newFileList.map(file => {
+                if (!file.url && file.originFileObj) {
+                    file.url = URL.createObjectURL(file.originFileObj);
+                }
+                file.status = 'done';
+                return file;
+            });
+
+            setFileList(newFileList);
+        }
+
     };
 
 
@@ -381,7 +396,7 @@ const ServiceBookingManage = () => {
                     form={form3}
                 >
                     <Form.Item
-                        label="Ảnh"
+                        label="Files đính kèm"
                         name="imageObjectId"
                         rules={[
                             { required: true, message: 'Trường này không được bỏ trống !' },
@@ -395,11 +410,12 @@ const ServiceBookingManage = () => {
                                 showRemoveIcon: true,
                                 showDownloadIcon: false,
                             }}
-                            accept="image/*"
+                            accept="image/*,.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf"
                             beforeUpload={beforeUpload} // Hàm xử lý trước khi tải lên
                             onChange={handleChange} // Hàm xử lý khi danh sách các tệp tải lên thay đổi
+                            maxCount={2}
                         >
-                            {fileList.length < 3 && '+ Upload'} {/* Hiển thị nút tải lên nếu chưa đạt số lượng tối đa */}
+                            {fileList.length < 2 && '+ Upload'}
                         </Upload>
                     </Form.Item>
 
