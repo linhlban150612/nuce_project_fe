@@ -86,11 +86,27 @@ const ServiceManage = () => {
             title: 'Trạng thái',
             dataIndex: 'status',
             key: 'status',
-            render: (status: number) => (
-                <Tag color={status === 0 ? 'red' : 'green'}>
-                    {status === 0 ? 'INACTIVE' : 'ACTIVE'}
-                </Tag>
-            ),
+            render: (status: number) => {
+                if (status === 1) {
+                    return (
+                        <div className="flex gap-2">
+                            <Tag color='green'>ACTIVE</Tag>
+                        </div>
+                    );
+                } else if (status === 4) {
+                    return (
+                        <div className="flex gap-2">
+                            <Tag color='#bfbfbf'>BLOCKED</Tag>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="flex gap-2">
+                            <Tag color='red'>INACTIVE</Tag>
+                        </div>
+                    );
+                }
+            },
             width: 100
         },
         {
