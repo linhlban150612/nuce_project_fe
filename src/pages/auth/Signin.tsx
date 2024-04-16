@@ -2,29 +2,30 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { AuthSignin, useSigninMutation } from '../../api/share/Auth';
-import { Notifn } from '../../utils/Notification';
 import logo from '../../../public/logoDA.png';
+import { Notifn } from '../../utils/Notification';
 
 
 const Signin = () => {
     const [signin, { isLoading }] = useSigninMutation();
-    const onFinish = async (values: AuthSignin) => {
-        try {
-            const { email, password } = values;
-            const rememberMe = true;
-            const response = await signin({ email, password, rememberMe }).unwrap();
 
-            // Lấy token từ kết quả trả về
-            const accessToken = response?.data?.token;
-            const refreshToken = response?.data?.refreshToken;
-            const role = response?.data?.role;
+    const onFinish = (values: AuthSignin) => {
+        const { email, password } = values;
+        const rememberMe = true;
+        signin({ email, password, rememberMe })
+            .unwrap()
+            .then((response) => {
+                const accessToken = response?.data?.token;
+                const refreshToken = response?.data?.refreshToken;
+                const role = response?.data?.role;
 
-            // Lưu token vào localStorage
-            if (accessToken && refreshToken) {
+                // Lưu token vào localStorage
                 localStorage.setItem('token', accessToken);
                 localStorage.setItem('rfToken', refreshToken);
-                localStorage.setItem('role', role!);
+                localStorage.setItem('role', role);
+
                 Notifn("success", "Thành công", "Đăng nhập thành công");
+
                 if (role === "ADMIN") {
                     window.location.href = "/admin";
                 } else if (role === "DOCTOR") {
@@ -33,13 +34,11 @@ const Signin = () => {
                 else if (role === "USER") {
                     window.location.href = "/"
                 }
-            } else {
-                throw new Error('Không có dữ liệu token hoặc refreshToken');
-            }
-        } catch (error) {
+            })
+            .catch((error) => {
+                Notifn("warning", "Cảnh báo", error?.data?.message || error.data);
+            })
 
-            Notifn("error", "Lỗi", (error as any).data || 'Có lỗi xảy ra');
-        }
     };
 
     return (

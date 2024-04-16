@@ -34,14 +34,14 @@ const authApi = createApi({
     }),
     endpoints: (builder) => ({
 
-        signup: builder.mutation<{ message: string; status: string; errors: any }, AuthSignup>({
+        signup: builder.mutation<any, any>({
             query: (account) => ({
                 url: "register",
                 method: "POST",
                 body: account,
             }),
         }),
-        signin: builder.mutation<{ errorMessage: string; token: string, errorCode: string, refreshToken: string, role: string, data: AuthSignin }, AuthSignin>({
+        signin: builder.mutation<any, any>({
             query: (account) => ({
                 url: "login",
                 method: "POST",

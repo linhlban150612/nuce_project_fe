@@ -280,7 +280,7 @@ const AccountManage = () => {
                 columns={columns}
                 dataSource={Array.isArray(data?.data?.data) ? data?.data?.data : []}
                 loading={isLoading}
-                scroll={{ y: 240 }}
+                scroll={{ y: 350 }}
                 pagination={{
                     current: data?.data?.currentPage ? data.data.currentPage + 1 : 1,
                     total: data?.data?.totalItems,
