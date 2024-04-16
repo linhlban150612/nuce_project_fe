@@ -33,7 +33,14 @@ const Header = () => {
                 });
             }
         }
-    }, [error]);
+        if (data?.data?.status === "0") {
+            localStorage.removeItem('token');
+            localStorage.removeItem('rfToken');
+            localStorage.removeItem('role');
+            Notifn("warning", "Cảnh báo", "Tài khoản của bạn đã bị khoá !!");
+            navigate("/login");
+        }
+    }, [error, data]);
 
     const changeLanguage = (language: string) => {
         i18n.changeLanguage(language);
