@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { RiServiceLine } from "react-icons/ri";
 import { useGetStatusQuery } from "../../../api/share/upload";
 import { useGetAllSpecialtyQuery } from "../../../api/admin/Specialty";
-import { useGetAllClinicsQuery } from "../../../api/site/Clinics";
+import { useGetAllClinicsNChildrenQuery } from "../../../api/site/Clinics";
 
 const { confirm } = Modal;
 const AccountManage = () => {
@@ -25,7 +25,7 @@ const AccountManage = () => {
     const { data: selectRole, isLoading: loadingRole } = useGetRoleQuery();
     const { data: statusData } = useGetStatusQuery();
     const { data: specialty } = useGetAllSpecialtyQuery({ name: "", status: "", page: 0, resultLimit: 500 });//Chuyên khoa
-    const { data: clinics } = useGetAllClinicsQuery({ search: "", province: "", status: "", page: 0, resultLimit: 500 });//Phòng khám
+    const { data: clinics } = useGetAllClinicsNChildrenQuery({ search: "", province: "", status: "", page: 0, resultLimit: 500 });//Phòng khám
 
     useEffect(() => {
         searchAccount({ keyword: null, role: null, status: null, clinic: null, speciality: null, page: 0, resultLimit: 10 });

@@ -4,7 +4,7 @@ import { ReloadOutlined, SearchOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { useExportManageMutation, useGetStatusBookingQuery, useSearchManageMutation } from "../../api/admin/Booking";
 import { useGetAllSpecialtyQuery } from '../../api/admin/Specialty';
-import { useGetAllClinicsQuery } from '../../api/site/Clinics';
+import { useGetAllClinicsNChildrenQuery } from '../../api/site/Clinics';
 import { useGetAllDoctorsQuery } from '../../api/admin/Doctor';
 import dayjs from 'dayjs';
 import { Notifn } from '../../utils/Notification';
@@ -22,7 +22,7 @@ const Manage = () => {
   const [exportData, { isLoading: loadingExport }] = useExportManageMutation();
   const { data: bookingStatus } = useGetStatusBookingQuery();
   const { data: specialty } = useGetAllSpecialtyQuery({ name: "", status: "", page: 0, resultLimit: 500 });//Chuyên khoa
-  const { data: clinics } = useGetAllClinicsQuery({ search: "", province: "", status: "", page: 0, resultLimit: 500 });//Phòng khám
+  const { data: clinics } = useGetAllClinicsNChildrenQuery({ search: "", province: "", status: "", page: 0, resultLimit: 500 });//Phòng khám
   const { data: doctor, isLoading: loadingDoctor } = useGetAllDoctorsQuery({ type: selectType, name: "", clinic: selectClinic, speciality: selectSpecialty, page: 0, resultLimit: 100 });
 
   useEffect(() => {

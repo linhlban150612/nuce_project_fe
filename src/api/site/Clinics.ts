@@ -25,6 +25,15 @@ const clinicsApi = createApi({
             providesTags: ['CLINICS']
         }),
 
+        getAllClinicsNChildren: builder.query<any, { search?: string | null; province?: string | null; status?: string | null; page?: number; resultLimit?: number }>({
+            query: ({ search, status, page, resultLimit, province }) => ({
+                url: 'public/clinics/allNChildren',
+                method: 'GET',
+                params: { search, status, page, resultLimit, province },
+            }),
+            providesTags: ['CLINICS']
+        }),
+
         searchClinics: builder.mutation<any, { search: string | null; province: string | null; status: string | null; page: number; resultLimit: number }>({
             query: ({ search, status, page, resultLimit, province }) => ({
                 url: 'public/clinics/all',
@@ -92,6 +101,7 @@ export const {
     useDeleteClinicsMutation,
     useSearchClinicsMutation,
     useGetHistoryBookingMutation,
+    useGetAllClinicsNChildrenQuery
 
 } = clinicsApi;
 
