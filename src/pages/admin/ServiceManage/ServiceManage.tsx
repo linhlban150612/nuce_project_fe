@@ -119,7 +119,9 @@ const ServiceManage = () => {
                     {
                         key: record.status === "1" ? 'active' : 'inactive',
                         label: (
-                            <button onClick={() => { showDeleteConfirm([record.id], record.status === 1 ? 0 : 1) }}>
+                            <button
+
+                                onClick={() => { showDeleteConfirm([record.id], record.status === 1 ? 0 : 1) }}>
                                 <p className="">
                                     {record.status === 1 ? <AiOutlineLock className="inline-block mr-2 text-xl" /> : <AiOutlineUnlock className="inline-block mr-2 text-xl" />}
                                     {record.status === 1 ? 'Inactive' : 'Active'}

@@ -183,6 +183,7 @@ const AccountManage = () => {
                                     <p className=""><RiServiceLine className="inline-block mr-2 text-xl" />Quản lý dịch vụ</p>
                                 </a>
                             ),
+                            disabled: record.status === '1' ? false : true
                         },
                     );
                 }
