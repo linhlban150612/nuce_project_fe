@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { ISpecialty } from "../../../interface/Specialty";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { useGetByIdSpecialtyQuery, useUpdateSpecialtyMutation } from "../../../api/admin/Specialty";
+import { useAdminGetByIdSpecialtyQuery, useUpdateSpecialtyMutation } from "../../../api/admin/Specialty";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Notifn } from "../../../utils/Notification";
 
@@ -18,7 +18,7 @@ const UpdateSpecialty = () => {
     const [fileImg, setFile] = useState<File | null>(null);//Lưu file ảnh
     const [isImageUploading, setIsImageUploading] = useState(false);
 
-    const { data: specialtyData, isLoading: loadingData } = useGetByIdSpecialtyQuery(id || "");
+    const { data: specialtyData, isLoading: loadingData } = useAdminGetByIdSpecialtyQuery(id || "");
     const [uploadImage, { isLoading }] = useUploadMutation();
     const [updateSpecialty] = useUpdateSpecialtyMutation();
     const { data: status } = useGetStatusQuery()

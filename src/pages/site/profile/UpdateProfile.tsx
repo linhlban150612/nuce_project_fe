@@ -213,9 +213,6 @@ const UpdateProfile = () => {
                         <Form.Item
                             label="Công việc"
                             name="job"
-                            rules={[
-                                { required: true, message: 'Trường này không được bỏ trống !' },
-                            ]}
                         >
                             <Input />
                         </Form.Item>

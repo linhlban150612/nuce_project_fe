@@ -47,6 +47,10 @@ const clinicsApi = createApi({
             query: (id) => "/public/clinics/get/" + id,
             providesTags: ['CLINICS']
         }),
+        adminGetByIdClinics: builder.query<IClinics, number | string>({
+            query: (id) => "/admin/clinics/get/" + id,
+            providesTags: ['CLINICS']
+        }),
         getChildrenClinics: builder.query<IClinics, number | string>({
             query: (id) => "/public/clinics/children/all/" + id,
             providesTags: ['CLINICS']
@@ -101,7 +105,8 @@ export const {
     useDeleteClinicsMutation,
     useSearchClinicsMutation,
     useGetHistoryBookingMutation,
-    useGetAllClinicsNChildrenQuery
+    useGetAllClinicsNChildrenQuery,
+    useAdminGetByIdClinicsQuery
 
 } = clinicsApi;
 

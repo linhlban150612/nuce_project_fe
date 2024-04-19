@@ -38,6 +38,10 @@ const specialtyApi = createApi({
             query: (id) => "/public/specialities/get/" + id,
             providesTags: ['SPECIALTY']
         }),
+        adminGetByIdSpecialty: builder.query<ISpecialty, number | string>({
+            query: (id) => "/admin/specialities/get/" + id,
+            providesTags: ['SPECIALTY']
+        }),
         addSpecialty: builder.mutation<any, any>({
             query: (specialty: any) => ({
                 url: "/admin/specialities/create",
@@ -72,7 +76,8 @@ export const {
     useAddSpecialtyMutation,
     useUpdateSpecialtyMutation,
     useDeleteSpecialtyMutation,
-    useSearchAllSpecialtyMutation
+    useSearchAllSpecialtyMutation,
+    useAdminGetByIdSpecialtyQuery
 
 } = specialtyApi;
 

@@ -8,7 +8,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Notifn } from "../../../utils/Notification";
 import { IClinics } from "../../../interface/Clinics";
-import { useGetAllClinicsQuery, useGetByIdClinicsQuery, useUpdateClinicsMutation } from "../../../api/site/Clinics";
+import { useGetAllClinicsQuery, useAdminGetByIdClinicsQuery, useUpdateClinicsMutation } from "../../../api/site/Clinics";
 import { useGetDistrictsQuery, useGetProvincesQuery, useGetWardsQuery } from "../../../api/share/area";
 
 const ClinicsUpdate = () => {
@@ -22,7 +22,7 @@ const ClinicsUpdate = () => {
     const [selectedDistricts, setSelectedDistricts] = useState<string>("");//Lưu mã quạn huyện
     const [isClinicCurved, setIsClinicCurved] = useState(false);
 
-    const { data: clinicsData, isLoading: dataLoading } = useGetByIdClinicsQuery(id || "")
+    const { data: clinicsData, isLoading: dataLoading } = useAdminGetByIdClinicsQuery(id || "")
     const { data: clinics, isLoading: loadingClinics } = useGetAllClinicsQuery({ search: "", province: "", status: "", page: 0, resultLimit: 100 });//Phòng khám
     const { data: provinces } = useGetProvincesQuery();//Tỉnh thành phố
     const { data: districts, isLoading: loadingDistricts } = useGetDistrictsQuery(selectedProvince);//Quận huyện
