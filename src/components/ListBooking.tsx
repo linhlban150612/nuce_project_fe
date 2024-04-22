@@ -69,7 +69,7 @@ const ListBooking: React.FC<ServiceListProps> = ({
                                 </div>
                             </div>
                             <div className='px-4'>
-                                <Select style={{ width: 150 }} value={selectedDates[index]} onChange={(value) => handleDateChange(value, index)} >
+                                <Select style={{ width: 210 }} value={selectedDates[index]} onChange={(value) => handleDateChange(value, index)} >
                                     {item?.schedules?.map((schedule: IBooking, index: number) => (
                                         <Select.Option key={schedule.id} value={index}>{schedule.date}</Select.Option>
                                     ))}
