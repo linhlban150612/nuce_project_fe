@@ -103,6 +103,8 @@ const ServiceBookingManage = () => {
 
     const hiddenModal2 = () => {
         setIsModalOpen2(false);
+        setFileList([]);
+        setTotalFileSize(0);
     };
 
     const columns: ColumnsType<any> = [
@@ -254,7 +256,7 @@ const ServiceBookingManage = () => {
             setIsValidFileSize(false);
             return false; // Ngăn không cho tải lên
         }
-
+        debugger;
         if (currentTotalSize / 1024 / 1024 > MAX_FILE_SIZE) {
             Notifn("warning", "Cảnh báo", "Tổng kích thước các tệp không được vượt quá " + MAX_FILE_SIZE.toString() + "MB");
             setIsValidFileSize(false);
